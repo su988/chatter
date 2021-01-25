@@ -5,7 +5,6 @@ import { useAuth } from '../contexts/AuthContext';
 export default function ProtectedRoute({ component: Component, ...rest }) {
   const { currentUser } = useAuth();
 
-  console.log(currentUser);
   return (
     <Route
       {...rest}
