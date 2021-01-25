@@ -3,13 +3,13 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const app = firebase.initializeApp({
-  apiKey: 'AIzaSyDKwVTx-yL2SrMtEL6MDvUoiG_10FfSlAk',
-  authDomain: 'chatter-62d0d.firebaseapp.com',
-  databaseURL: 'https://chatter-62d0d-default-rtdb.firebaseio.com',
-  projectId: 'chatter-62d0d',
-  storageBucket: 'chatter-62d0d.appspot.com',
-  messagingSenderId: '743371539116',
-  appId: '1:743371539116:web:e6e89333e1ba45f2665509'
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  databaseURL: process.env.REACT_APP_BASEURL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 }); // Initialize Firebase
 
 export const auth = firebase.auth();
