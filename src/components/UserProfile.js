@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 export default function UserProfile() {
-  return <div>User Profile</div>;
+  return (
+    <>
+      <div>hello from user profile</div>
+    </>
+  );
 }

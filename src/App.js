@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
 import Register from './components/Register';
-import ChatRoom from './components/ChatRoom';
+import Dashboard from './components/Dashboard';
 import UserProfile from './components/UserProfile';
+import Channel from './components/Channel';
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <Switch>
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
-          <ProtectedRoute path='/' component={ChatRoom} />
-          <ProtectedRoute path='/profile' component={UserProfile} />
+          <ProtectedRoute exact path='/' component={Dashboard} />
+          <ProtectedRoute exact path='/:channel' component={Channel} />
+          <ProtectedRoute path='/user-profile' component={UserProfile} />
         </Switch>
       </div>
     </>
