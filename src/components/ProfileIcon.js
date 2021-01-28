@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function ProfileIcon() {
@@ -6,7 +7,10 @@ export default function ProfileIcon() {
 
   return (
     <>
-      <p>user profile icon</p>
+      <h4>user profile icon</h4>
+      <Link to='/user-profile'>
+        <div>Setting</div>
+      </Link>
       <button onClick={logout}>Logout</button>
     </>
   );

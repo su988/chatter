@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { auth } from '../services/firebase';
+import { auth, db } from '../services/firebase';
 
 const AuthContext = React.createContext();
 
@@ -24,18 +24,29 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    let isUnmount = false;
-
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (!isUnmount) {
-        setCurrentUser(user);
-        setLoading(false);
+      setCurrentUser(user);
+      if (user) {
+        const userRef = db.ref('Users/' + user.uid);
+        const newUser = {
+          email: user.email,
+          username: user.email.match(/^(.*?)@/)[1],
+          photoUrl: '',
+          channels: { Welcome: true }
+        };
+        userRef.once('value', (snapshot) => {
+          if (!snapshot.exists()) {
+            userRef.set(newUser);
+          }
+        });
+        console.log(user.email);
       }
+
+      setLoading(false);
     });
 
     return () => {
       unsubscribe();
-      isUnmount = true;
     };
   }, []);
 

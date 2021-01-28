@@ -36,6 +36,12 @@ export default function ChannelList() {
     );
   };
 
+  const renderList =
+    filteredList &&
+    filteredList.map((channel, index) => (
+      <Channel channel={channel} key={index} />
+    ));
+
   return (
     <Sidebar>
       <h2>ChannelList</h2>
@@ -47,11 +53,7 @@ export default function ChannelList() {
         value={keyword}
         onChange={handleChange}
       />
-      {filteredList
-        ? filteredList.map((channel, index) => (
-            <Channel channel={channel} key={index} />
-          ))
-        : ''}
+      {renderList}
       <ProfileIcon />
     </Sidebar>
   );
