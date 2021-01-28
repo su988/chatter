@@ -1,9 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-export default function Main() {
-  return (
-    <>
-      <h2>ola main</h2>
-    </>
-  );
+export default function Main({ children }) {
+  return <div className='main'>{children}</div>;
 }

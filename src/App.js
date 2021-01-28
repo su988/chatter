@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import UserProfile from './components/UserProfile';
-import Channel from './components/Channel';
+import SelectedChannel from './components/SelectedChannel';
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <ProtectedRoute exact path='/' component={Dashboard} />
-          {/* <ProtectedRoute exact path='/:channel' component={Channel} /> */}
           <ProtectedRoute path='/user-profile' component={UserProfile} />
+          <ProtectedRoute path='/:channelId' component={SelectedChannel} />
         </Switch>
       </div>
     </>

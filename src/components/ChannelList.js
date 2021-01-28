@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import NewChannelForm from './NewChannelForm';
 import Channel from './Channel';
+import ProfileIcon from './ProfileIcon';
 import { db } from '../services/firebase';
 
 export default function ChannelList() {
@@ -51,6 +52,7 @@ export default function ChannelList() {
             <Channel channel={channel} key={index} />
           ))
         : ''}
+      <ProfileIcon />
     </Sidebar>
   );
 }
