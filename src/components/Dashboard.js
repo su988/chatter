@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import Sidebar from './Sidebar';
+import ChannelList from './ChannelList';
 import Main from './Main';
 
 export default function Dashboard() {
@@ -9,9 +9,11 @@ export default function Dashboard() {
   return (
     <>
       <h2>Dashboard</h2>
-      <Sidebar />
-      <Main />
+      <ChannelList />
+      <br></br>
+      <p>user profile icon</p>
       <button onClick={logout}>Logout</button>
+      <Main />
     </>
   );
 }

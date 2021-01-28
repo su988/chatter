@@ -1,13 +1,5 @@
-import React, { Fragment } from 'react';
-import ChannelList from './ChannelList';
-import Channel from './Channel';
+import React from 'react';
 
-export default function Sidebar() {
-  return (
-    <>
-      <h2>Sidebar</h2>
-      {/* condition ? <ChannelList /> : <Channel /> */}
-      {/* <UserSetting /> */}
-    </>
-  );
+export default function Sidebar(props) {
+  return <div className='sidebar'>{props.children}</div>;
 }

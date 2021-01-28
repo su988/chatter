@@ -15,7 +15,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <ProtectedRoute exact path='/' component={Dashboard} />
-          <ProtectedRoute exact path='/:channel' component={Channel} />
+          {/* <ProtectedRoute exact path='/:channel' component={Channel} /> */}
           <ProtectedRoute path='/user-profile' component={UserProfile} />
         </Switch>
       </div>
