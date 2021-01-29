@@ -14,7 +14,7 @@ export default function ChannelList() {
     const channelRef = db.ref('Channels');
     channelRef.on('value', (snapshot) => {
       const channels = snapshot.val();
-      const tempList = [];
+      let tempList = [];
       for (let id in channels) {
         tempList.push({ id, ...channels[id] });
       }

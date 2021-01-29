@@ -39,7 +39,6 @@ export function AuthProvider({ children }) {
             userRef.set(newUser);
           }
         });
-        console.log(user.email);
       }
 
       setLoading(false);
