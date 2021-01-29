@@ -26,9 +26,10 @@ export default function Login() {
     setLoading(false);
   };
 
+  currentUser && history.push('/');
+
   return (
     <>
-      {currentUser && history.push('/')}
       <h2>Login</h2>
       {error && <div>{error}</div>}
       <form onSubmit={handleSubmit}>

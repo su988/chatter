@@ -23,5 +23,5 @@ export default function UserList({ channelId }) {
   const renderList =
     userList && userList.map((user, index) => <div key={index}>{user}</div>);
 
-  return <>{renderList}</>;
+  return <>{renderList && renderList}</>;
 }

@@ -1,19 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../services/firebase';
 import Main from './Main';
+import Messages from './Messages';
 
 export default function MessageList({ channelId, currentUser }) {
-  const [messageList, setMessageList] = useState();
+  const [messages, setMessages] = useState();
+  const [username, setUsername] = useState();
+  const [photoUrl, setPhotoUrl] = useState();
   const textRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Add new message to db
-    //Messages: channelId: {text, timestamp, userId}
+
     const messageRef = db.ref('Messages/' + channelId);
     const message = {
-      text: textRef.current.value,
       userId: currentUser.uid,
+      text: textRef.current.value,
+      username: username,
+      photoUrl: photoUrl,
       created: Date.now()
     };
     messageRef.push(message);
@@ -21,19 +25,30 @@ export default function MessageList({ channelId, currentUser }) {
   };
 
   useEffect(() => {
+    const userRef = db.ref('Users/' + currentUser.uid);
+    userRef.on('value', (snapshot) => {
+      const user = snapshot.val();
+      setUsername(user['username']);
+      setPhotoUrl(user['photoUrl']);
+    });
+  }, []);
+
+  useEffect(() => {
     const messageRef = db.ref('Messages/' + channelId);
     messageRef.on('value', (snapshot) => {
       let tempList = [];
       const messages = snapshot.val();
       for (let id in messages) {
-        console.log(messages[id]['created']);
+        tempList.push(messages[id]);
       }
+
+      setMessages(tempList);
     });
   }, []);
 
   return (
     <Main>
-      <div>all messages here</div>
+      <Messages messages={messages} />
       <form onSubmit={handleSubmit}>
         <input type='text' ref={textRef} />
         <input type='submit' value='Submit' />
