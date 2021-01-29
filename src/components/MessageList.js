@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../services/firebase';
-import Main from './Main';
+import MainPanel from './MainPanel';
 import Messages from './Messages';
 
 export default function MessageList({ channelId, currentUser }) {
@@ -47,12 +47,12 @@ export default function MessageList({ channelId, currentUser }) {
   }, []);
 
   return (
-    <Main>
+    <MainPanel>
       <Messages messages={messages} />
       <form onSubmit={handleSubmit}>
         <input type='text' ref={textRef} />
         <input type='submit' value='Submit' />
       </form>
-    </Main>
+    </MainPanel>
   );
 }

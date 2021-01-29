@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react';
 import ChannelList from './ChannelList';
-// import MessageList from './MessageList';
+import Welcome from './Welcome';
 
 export default function Dashboard() {
   return (
     <>
-      <h2>Dashboard</h2>
       <ChannelList />
-      <br />
-      <br />
-      {/* <MessageList /> */}
+      <Welcome />
     </>
   );
 }
