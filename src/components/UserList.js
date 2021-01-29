@@ -5,7 +5,7 @@ export default function UserList({ channelId }) {
   const [userList, setUserList] = useState();
 
   useEffect(() => {
-    //get user list in a channel
+    //get all users in a channel
     let userRef = db.ref('Users');
     userRef.on('value', (snapshot) => {
       const users = snapshot.val();
@@ -18,10 +18,10 @@ export default function UserList({ channelId }) {
 
       setUserList(tempList);
     });
-  }, []);
+  }, [channelId]);
 
   const renderList =
-    userList && userList.map((user, index) => <div>{user}</div>);
+    userList && userList.map((user, index) => <div key={index}>{user}</div>);
 
   return <>{renderList}</>;
 }

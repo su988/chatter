@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { db } from '../services/firebase';
 import { useAuth } from '../contexts/AuthContext';
 import Sidebar from './Sidebar';
 import UserList from './UserList';
 import ProfileIcon from './ProfileIcon';
+import MessageList from './MessageList';
 
 export default function SelectedChannel() {
   const [name, setName] = useState();
@@ -27,15 +28,18 @@ export default function SelectedChannel() {
   }, []);
 
   return (
-    <Sidebar>
-      <Link to='/'>
-        <div> Back to all channels</div>
-      </Link>
-      <h3>{name}</h3>
-      <p>{description}</p>
-      <h4>Members List</h4>
-      <UserList channelId={channelId} />
-      <ProfileIcon />
-    </Sidebar>
+    <>
+      <Sidebar>
+        <Link to='/'>
+          <div> Back to all channels</div>
+        </Link>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <h4>Members List</h4>
+        <UserList channelId={channelId} />
+        <ProfileIcon />
+      </Sidebar>
+      <MessageList channelId={channelId} currentUser={currentUser} />
+    </>
   );
 }

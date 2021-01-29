@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import ChannelList from './ChannelList';
-import Messages from './Messages';
+// import MessageList from './MessageList';
 
 export default function Dashboard() {
   return (
@@ -9,7 +9,7 @@ export default function Dashboard() {
       <ChannelList />
       <br />
       <br />
-      <Messages />
+      {/* <MessageList /> */}
     </>
   );
 }

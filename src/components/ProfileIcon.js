@@ -9,7 +9,7 @@ export default function ProfileIcon() {
     <>
       <h4>user profile icon</h4>
       <Link to='/user-profile'>
-        <div>Setting</div>
+        <div>Profile</div>
       </Link>
       <button onClick={logout}>Logout</button>
     </>
