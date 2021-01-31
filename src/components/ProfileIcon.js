@@ -1,17 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import './ProfileIcon.css';
 
 export default function ProfileIcon() {
   const { logout } = useAuth();
 
   return (
-    <>
-      <h4>user profile icon</h4>
+    <div className='profileIcon'>
       <Link to='/user-profile'>
         <div>Profile</div>
       </Link>
       <button onClick={logout}>Logout</button>
-    </>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { db } from '../services/firebase';
 
-export default function UserList({ channelId }) {
+export default function MembersList({ channelId }) {
   const [userList, setUserList] = useState();
 
   useEffect(() => {
@@ -23,5 +23,10 @@ export default function UserList({ channelId }) {
   const renderList =
     userList && userList.map((user, index) => <div key={index}>{user}</div>);
 
-  return <>{renderList && renderList}</>;
+  return (
+    <>
+      <h4>Members List</h4>
+      {renderList && renderList}
+    </>
+  );
 }

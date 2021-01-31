@@ -1,10 +1,6 @@
 import React from 'react';
+import './Sidebar.css';
 
 export default function Sidebar({ children }) {
-  return (
-    <div className='sidebar'>
-      <h4>hello from sidebar</h4>
-      {children}
-    </div>
-  );
+  return <div className='sidebar'>{children}</div>;
 }

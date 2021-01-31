@@ -1,0 +1,8 @@
+.profileIcon {
+  position: absolute;
+  bottom: 0;
+  min-width: 324px;
+  min-height: 75px;
+  background-color: #0b090c;
+  color: #828282;
+}

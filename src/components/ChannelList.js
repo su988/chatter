@@ -1,39 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import NewChannelForm from './NewChannelForm';
+import InputField from './InputField';
 import Channel from './Channel';
 import ProfileIcon from './ProfileIcon';
-import { db } from '../services/firebase';
+import { useChannel } from '../contexts/ChannelContext';
 
 export default function ChannelList() {
-  const [channelList, setChannelList] = useState();
-  const [filteredList, setFilteredList] = useState();
+  const { filteredList, filterChannels } = useChannel();
   const [keyword, setKeyword] = useState('');
-
-  useEffect(() => {
-    const channelRef = db.ref('Channels');
-    channelRef.on('value', (snapshot) => {
-      const channels = snapshot.val();
-      let tempList = [];
-      for (let id in channels) {
-        tempList.push({ id, ...channels[id] });
-      }
-      setChannelList(tempList);
-      setFilteredList(tempList);
-    });
-  }, []);
 
   const handleChange = (e) => {
     setKeyword(e.target.value);
     filterChannels(e.target.value);
-  };
-
-  const filterChannels = (input) => {
-    setFilteredList(
-      channelList.filter((channel) =>
-        channel.name.toLowerCase().includes(input)
-      )
-    );
   };
 
   const renderList =
@@ -44,9 +23,8 @@ export default function ChannelList() {
 
   return (
     <Sidebar>
-      <h2>ChannelList</h2>
       <NewChannelForm />
-      <input
+      <InputField
         type='text'
         name='keyword'
         placeholder='Search'

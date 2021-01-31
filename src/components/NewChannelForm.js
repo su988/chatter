@@ -1,25 +1,17 @@
 import React, { Fragment, useRef } from 'react';
-import { db } from '../services/firebase';
+import { useChannel } from '../contexts/ChannelContext';
 
 export default function NewChannelForm() {
+  const { createNewChannel } = useChannel();
   const nameRef = useRef();
   const descriptionRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createChannel();
+    createNewChannel(nameRef.current.value, descriptionRef.current.value);
+
     nameRef.current.value = '';
     descriptionRef.current.value = '';
-  };
-
-  const createChannel = () => {
-    const channelRef = db.ref('Channels');
-    const channel = {
-      name: nameRef.current.value,
-      description: descriptionRef.current.value
-    };
-
-    channelRef.push(channel);
   };
 
   return (
