@@ -1,0 +1,19 @@
+.messages {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.messages img {
+  margin-right: 10px;
+  border-radius: 7px;
+}
+
+.messages_user_info span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.messages_username {
+  text-transform: capitalize;
+}

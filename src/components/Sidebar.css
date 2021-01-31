@@ -1,5 +1,6 @@
 .sidebar {
   /* background-color: #333333; */
   min-width: 324px;
+  max-width: 324px;
   max-height: 100vh;
 }

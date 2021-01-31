@@ -11,7 +11,6 @@ export default function MessageList({ channelId, currentUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const messageRef = db.ref('Messages/' + channelId);
     const message = {
       userId: currentUser.uid,

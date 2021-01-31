@@ -38,9 +38,7 @@ export default function SelectedChannel() {
   return (
     <>
       <Sidebar>
-        <Link to='/'>
-          <div> Back to all channels</div>
-        </Link>
+        <Link to='/'>Back to all channels</Link>
         <SelectedChannelInfo name={name} description={description} />
         <MembersList channelId={channelId} />
         <ProfileIcon />

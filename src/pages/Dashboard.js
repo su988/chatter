@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ChannelList from '../components/ChannelList';
 import Welcome from '../components/Welcome';
 import './Dashboard.css';
