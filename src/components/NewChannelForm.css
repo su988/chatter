@@ -24,6 +24,9 @@
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 25px;
+  outline: none;
+  color: #f2f2f2;
+  font-size: 18px;
 }
 
 .channel_form_name::placeholder,
@@ -40,8 +43,11 @@
   width: 572.47px;
   height: 115.55px;
   background: #3c393f;
+  color: #f2f2f2;
   border-radius: 8px;
   margin-bottom: 20px;
+  outline: none;
+  font-size: 18px;
 }
 
 .channel_form_submit {
@@ -53,4 +59,8 @@
   border: none;
   color: #f2f2f2;
   float: right;
+}
+
+.channel_form_submit:hover {
+  cursor: pointer;
 }

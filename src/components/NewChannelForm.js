@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useChannel } from '../contexts/ChannelContext';
 import './NewChannelForm.css';
 
-export default function NewChannelForm() {
+export default function NewChannelForm({ modal }) {
   const { createNewChannel } = useChannel();
   const nameRef = useRef();
   const descriptionRef = useRef();
@@ -10,9 +10,9 @@ export default function NewChannelForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createNewChannel(nameRef.current.value, descriptionRef.current.value);
-
     nameRef.current.value = '';
     descriptionRef.current.value = '';
+    modal.current.close();
   };
 
   return (
@@ -25,7 +25,7 @@ export default function NewChannelForm() {
           ref={nameRef}
           placeholder='Channel name'
         />
-        <input
+        <textarea
           className='channel_form_description'
           type='text'
           ref={descriptionRef}
