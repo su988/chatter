@@ -1,0 +1,21 @@
+.sidebar_channel_search {
+  width: 265.42px;
+  height: 48px;
+  background: #3c393f;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: -0.035em;
+  text-transform: capitalize;
+  color: #828282;
+  margin: 20px 0 40px 30px;
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+
+.sidebar_channel_search::placeholder {
+  margin-left: 20px;
+}

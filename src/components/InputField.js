@@ -5,14 +5,15 @@ export default function InputField({
   name,
   placeholder,
   value,
-  onChange
+  onChange,
+  class_name
 }) {
   return (
     <input
       type={type}
       value={value}
       name={name}
-      className='form-control'
+      className={class_name}
       placeholder={placeholder}
       onChange={onChange}
     />

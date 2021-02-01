@@ -1,8 +1,23 @@
-a {
-  /* background-color: red; */
-  /* color: white; */
-  border: 2px solid black;
-  text-decoration: none;
+.channel_list {
   display: flex;
-  text-align: center;
+  align-items: center;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.channel_list img {
+  border-radius: 8px;
+}
+
+.channel_list a {
+  text-decoration: none;
+  margin-left: 20px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #bdbdbd;
 }
