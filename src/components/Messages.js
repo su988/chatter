@@ -22,7 +22,7 @@ export default function Messages({ messages }) {
         <div className='messages_user_info'>
           <span className='messages_username'>{message.username}</span>
 
-          <Moment from>{message.created}</Moment>
+          <Moment fromNow>{message.created}</Moment>
 
           <div className='messages_text'>{message.text}</div>
         </div>

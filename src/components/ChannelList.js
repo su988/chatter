@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Sidebar from './Sidebar';
 import NewChannelForm from './NewChannelForm';
 import InputField from './InputField';
 import Channel from './Channel';
 import ProfileIcon from './ProfileIcon';
+import Modal from './Modal';
 import { useChannel } from '../contexts/ChannelContext';
 
 export default function ChannelList() {
   const { filteredList, filterChannels } = useChannel();
   const [keyword, setKeyword] = useState('');
+  const modal = useRef(null);
 
   const handleChange = (e) => {
     setKeyword(e.target.value);
@@ -23,7 +25,11 @@ export default function ChannelList() {
 
   return (
     <Sidebar>
-      <NewChannelForm />
+      <button onClick={() => modal.current.open()}>+</button>
+      <Modal ref={modal}>
+        {/* <NewChannelForm /> */}
+        hello world
+      </Modal>
       <InputField
         type='text'
         name='keyword'
