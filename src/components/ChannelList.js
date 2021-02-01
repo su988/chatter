@@ -25,10 +25,9 @@ export default function ChannelList() {
 
   return (
     <Sidebar>
-      <button onClick={() => modal.current.open()}>+</button>
+      Channel<button onClick={() => modal.current.open()}>+</button>
       <Modal ref={modal}>
-        {/* <NewChannelForm /> */}
-        hello world
+        <NewChannelForm />
       </Modal>
       <InputField
         type='text'

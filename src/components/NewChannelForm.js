@@ -1,5 +1,6 @@
-import React, { Fragment, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useChannel } from '../contexts/ChannelContext';
+import './NewChannelForm.css';
 
 export default function NewChannelForm() {
   const { createNewChannel } = useChannel();
@@ -15,19 +16,23 @@ export default function NewChannelForm() {
   };
 
   return (
-    <>
-      <h5>New channel +</h5>
+    <div className='channel_form'>
+      <p>New channel</p>
       <form onSubmit={handleSubmit}>
-        <label>
-          Name
-          <input type='text' ref={nameRef} />
-        </label>
-        <label>
-          Description
-          <input type='text' ref={descriptionRef} />
-        </label>
-        <input type='submit' value='Submit' />
+        <input
+          className='channel_form_name'
+          type='text'
+          ref={nameRef}
+          placeholder='Channel name'
+        />
+        <input
+          className='channel_form_description'
+          type='text'
+          ref={descriptionRef}
+          placeholder='Channel Description'
+        />
+        <input className='channel_form_submit' type='submit' value='Save' />
       </form>
-    </>
+    </div>
   );
 }

@@ -42,14 +42,7 @@ function Modal({ children, fade = false, defaultOpened = false }, ref) {
     isOpen ? (
       <div className={`modal ${fade ? 'modal-fade' : ''}`}>
         <div className='modal-overlay' onClick={close} />
-        <span
-          role='button'
-          className='modal-close'
-          aria-label='close'
-          onClick={close}
-        >
-          x
-        </span>
+
         <div className='modal-body'>{children}</div>
       </div>
     ) : null,
