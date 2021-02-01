@@ -46,7 +46,11 @@ export default function SelectedChannel() {
         <MembersList channelId={channelId} />
         <ProfileIcon />
       </Sidebar>
-      <MessageList channelId={channelId} currentUser={currentUser} />
+      <MessageList
+        channelName={channelName}
+        channelId={channelId}
+        currentUser={currentUser}
+      />
     </>
   );
 }

@@ -1,4 +1,6 @@
 .mainPanel {
-  min-height: 100vh;
+  height: 100vh;
   flex-grow: 1;
+  background: #252329;
+  overflow: hidden;
 }

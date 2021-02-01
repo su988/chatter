@@ -9,6 +9,9 @@ export default function NewChannelForm({ modal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (nameRef.current.value === '' || descriptionRef.current.value === '') {
+      return;
+    }
     createNewChannel(nameRef.current.value, descriptionRef.current.value);
     nameRef.current.value = '';
     descriptionRef.current.value = '';

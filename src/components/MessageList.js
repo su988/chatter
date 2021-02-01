@@ -3,11 +3,13 @@ import MainPanel from './MainPanel';
 import Messages from './Messages';
 import { useMessage } from '../contexts/MessageContext';
 import { useUser } from '../contexts/UserContext';
+import { IoMdSend } from 'react-icons/io';
+import './MessageList.css';
 
-export default function MessageList({ channelId, currentUser }) {
+export default function MessageList({ channelId, currentUser, channelName }) {
   const textRef = useRef();
-  const { createNewMessage, getMessagesInChannel, messages } = useMessage();
   const { getCurrentUserInfo, username, photoUrl } = useUser();
+  const { createNewMessage, getMessagesInChannel, messages } = useMessage();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,11 +37,22 @@ export default function MessageList({ channelId, currentUser }) {
 
   return (
     <MainPanel>
-      <Messages messages={messages} />
-      <form onSubmit={handleSubmit}>
-        <input type='text' ref={textRef} />
-        <input type='submit' value='Submit' />
-      </form>
+      <div className='message_panel'>
+        <div className='message_panel_header'>{channelName}</div>
+        <Messages messages={messages} />
+        <form className='message_input' onSubmit={handleSubmit}>
+          <input
+            className='message_input_text'
+            placeholder='Enter Message here'
+            type='text'
+            ref={textRef}
+          />
+
+          <button className='message_submit_btn'>
+            <IoMdSend />
+          </button>
+        </form>
+      </div>
     </MainPanel>
   );
 }
