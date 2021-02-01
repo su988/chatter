@@ -10,6 +10,8 @@ export function useChannel() {
 export function ChannelProvider({ children }) {
   const [channelList, setChannelList] = useState();
   const [filteredList, setFilteredList] = useState();
+  const [channelName, setChannelName] = useState();
+  const [channelDescription, setChannelDescription] = useState();
 
   useEffect(() => {
     getChannelListData();
@@ -46,10 +48,27 @@ export function ChannelProvider({ children }) {
     );
   };
 
+  const addUserToChannel = (userId, channelId) => {
+    const channelRef = db.ref('Users').child(userId).child('channels');
+    channelRef.update({ [channelId]: true });
+  };
+
+  const getChannelInfo = (id) => {
+    const channelRef = db.ref('Channels').child(id);
+    channelRef.on('value', (snapshot) => {
+      setChannelName(snapshot.val().name);
+      setChannelDescription(snapshot.val().description);
+    });
+  };
+
   const value = {
     filteredList,
     createNewChannel,
-    filterChannels
+    filterChannels,
+    addUserToChannel,
+    getChannelInfo,
+    channelName,
+    channelDescription
   };
 
   return (

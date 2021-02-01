@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { db } from '../services/firebase';
 import { useAuth } from '../contexts/AuthContext';
+import { useChannel } from '../contexts/ChannelContext';
 import Sidebar from './Sidebar';
 import SelectedChannelInfo from './SelectedChannelInfo';
 import MembersList from './MembersList';
@@ -9,10 +9,14 @@ import ProfileIcon from './ProfileIcon';
 import MessageList from './MessageList';
 
 export default function SelectedChannel() {
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
   const { channelId } = useParams();
   const { currentUser } = useAuth();
+  const {
+    getChannelInfo,
+    addUserToChannel,
+    channelName,
+    channelDescription
+  } = useChannel();
 
   useEffect(() => {
     getChannelInfo(channelId);
@@ -22,24 +26,14 @@ export default function SelectedChannel() {
     addUserToChannel(currentUser.uid, channelId);
   }, []);
 
-  const addUserToChannel = (userId, channelId) => {
-    const channelRef = db.ref('Users').child(userId).child('channels');
-    channelRef.update({ [channelId]: true });
-  };
-
-  const getChannelInfo = (id) => {
-    const channelRef = db.ref('Channels').child(id);
-    channelRef.on('value', (snapshot) => {
-      setName(snapshot.val().name);
-      setDescription(snapshot.val().description);
-    });
-  };
-
   return (
     <>
       <Sidebar>
         <Link to='/'>Back to all channels</Link>
-        <SelectedChannelInfo name={name} description={description} />
+        <SelectedChannelInfo
+          name={channelName}
+          description={channelDescription}
+        />
         <MembersList channelId={channelId} />
         <ProfileIcon />
       </Sidebar>
