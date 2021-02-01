@@ -1,0 +1,41 @@
+.member_list {
+  position: absolute;
+  left: 27.76px;
+  top: 320.89px;
+}
+
+.members_header {
+  position: absolute;
+  height: 25px;
+  left: 27.76px;
+  top: 270.89px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #e0e0e0;
+}
+
+.member_info {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.member_info > img {
+  border-radius: 7px;
+  margin-right: 20px;
+}
+
+.member_name {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  color: #828282;
+  text-transform: capitalize;
+}

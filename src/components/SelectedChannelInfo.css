@@ -1,0 +1,29 @@
+.channel_name {
+  position: absolute;
+  width: 210px;
+  height: 25px;
+  left: 32.99px;
+  top: 84.49px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #e0e0e0;
+}
+
+.channel_description {
+  position: absolute;
+  width: 257.91px;
+  height: 100px;
+  left: 32.99px;
+  top: 127.34px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  color: #e0e0e0;
+}
