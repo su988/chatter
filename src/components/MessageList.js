@@ -1,48 +1,36 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { db } from '../services/firebase';
+import React, { useEffect, useRef } from 'react';
 import MainPanel from './MainPanel';
 import Messages from './Messages';
+import { useMessage } from '../contexts/MessageContext';
+import { useUser } from '../contexts/UserContext';
 
 export default function MessageList({ channelId, currentUser }) {
-  const [messages, setMessages] = useState();
-  const [username, setUsername] = useState();
-  const [photoUrl, setPhotoUrl] = useState();
   const textRef = useRef();
+  const { createNewMessage, getMessagesInChannel, messages } = useMessage();
+  const { getCurrentUserInfo, username, photoUrl } = useUser();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const messageRef = db.ref('Messages/' + channelId);
-    const message = {
-      userId: currentUser.uid,
-      text: textRef.current.value,
-      username: username,
-      photoUrl: photoUrl,
-      created: Date.now()
-    };
-    messageRef.push(message);
+
+    createNewMessage(
+      channelId,
+      currentUser.uid,
+      textRef.current.value,
+      username,
+      photoUrl,
+      Date.now()
+    );
+
     textRef.current.value = '';
   };
 
   useEffect(() => {
-    const userRef = db.ref('Users/' + currentUser.uid);
-    userRef.on('value', (snapshot) => {
-      const user = snapshot.val();
-      setUsername(user['username']);
-      setPhotoUrl(user['photoUrl']);
-    });
+    getCurrentUserInfo(currentUser.uid);
   }, []);
 
   useEffect(() => {
-    const messageRef = db.ref('Messages/' + channelId);
-    messageRef.on('value', (snapshot) => {
-      let tempList = [];
-      const messages = snapshot.val();
-      for (let id in messages) {
-        tempList.push(messages[id]);
-      }
-
-      setMessages(tempList);
-    });
+    //get all messages from selected channel
+    getMessagesInChannel(channelId);
   }, []);
 
   return (

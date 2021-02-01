@@ -19,7 +19,7 @@ export default function MembersList({ channelId }) {
           height={42}
           width={42}
           fontSize={16}
-          color={'#0B090C'}
+          color={'#252329'}
         />
         <div className='member_name'>{user}</div>
       </div>
