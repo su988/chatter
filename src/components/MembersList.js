@@ -1,27 +1,16 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { db } from '../services/firebase';
+import React, { Fragment, useEffect } from 'react';
+import { useChannel } from '../contexts/ChannelContext';
 
 export default function MembersList({ channelId }) {
-  const [userList, setUserList] = useState();
+  const { getChannelMembers, channelMembers } = useChannel();
 
   useEffect(() => {
-    //get all users in a channel
-    let userRef = db.ref('Users');
-    userRef.on('value', (snapshot) => {
-      const users = snapshot.val();
-      let tempList = [];
-      for (let id in users) {
-        if (users[id]['channels'][channelId]) {
-          tempList.push(users[id]['username']);
-        }
-      }
-
-      setUserList(tempList);
-    });
-  }, [channelId]);
+    getChannelMembers(channelId);
+  }, []);
 
   const renderList =
-    userList && userList.map((user, index) => <div key={index}>{user}</div>);
+    channelMembers &&
+    channelMembers.map((user, index) => <div key={index}>{user}</div>);
 
   return (
     <>
