@@ -1,0 +1,22 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.welcome_message {
+  text-transform: capitalize;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 25px;
+  letter-spacing: -0.035em;
+  color: #828282;
+  margin-top: 50%;
+  margin-bottom: 30px;
+}
+
+.welcome p {
+  font-size: 24px;
+}

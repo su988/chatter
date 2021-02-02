@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { db } from '../services/firebase';
+import { useHistory } from 'react-router-dom';
 
 const ChannelContext = React.createContext();
 
@@ -13,6 +14,7 @@ export function ChannelProvider({ children }) {
   const [channelName, setChannelName] = useState();
   const [channelDescription, setChannelDescription] = useState();
   const [channelMembers, setChannelMembers] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     getChannelListData();
@@ -57,8 +59,12 @@ export function ChannelProvider({ children }) {
   const getChannelInfo = (id) => {
     const channelRef = db.ref('Channels').child(id);
     channelRef.on('value', (snapshot) => {
-      setChannelName(snapshot.val().name);
-      setChannelDescription(snapshot.val().description);
+      if (snapshot.val()) {
+        setChannelName(snapshot.val().name);
+        setChannelDescription(snapshot.val().description);
+      } else {
+        history.push('/');
+      }
     });
   };
 

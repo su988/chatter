@@ -12,7 +12,6 @@ function App() {
     <>
       <div className='App'>
         <Switch>
-          {/* // 404 error route */}
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <ProtectedRoute exact path='/' component={Dashboard} />
