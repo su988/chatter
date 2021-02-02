@@ -14,6 +14,9 @@ export default function MessageList({ channelId, currentUser, channelName }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (textRef.current.value === '') {
+      return;
+    }
     createNewMessage(
       channelId,
       currentUser.uid,

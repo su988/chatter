@@ -1,0 +1,98 @@
+:root {
+  --backg_color: #252329;
+  --border_color: #828282;
+  --blue: #007ef5;
+}
+
+body {
+  background: var(--backg_color);
+}
+
+.login {
+  position: relative;
+  border: 2px solid var(--border_color);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 10% auto;
+  min-height: 500px;
+  width: 350px;
+  padding: 20px;
+}
+
+.login h2 {
+  color: var(--border_color);
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.login_form > input::placeholder {
+  color: var(--border_color);
+}
+
+.login_password,
+.login_email {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  outline: none;
+  background: var(--backg_color);
+  border: 1px solid var(--border_color);
+  color: #f2f2f2;
+  font-size: 18px;
+}
+
+.login_register {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  color: var(--border_color);
+  font-size: 16px;
+  align-self: center;
+}
+
+.login_register a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.login_submit {
+  padding: 10px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  background: var(--blue);
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
+.login_submit:hover {
+  cursor: pointer;
+}
+
+.login_google_text {
+  align-self: center;
+  font-size: 13px;
+  color: var(--border_color);
+  margin-bottom: 10px;
+}
+
+.login_google_btn {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+}
+
+.login_google_btn:hover {
+  cursor: pointer;
+}

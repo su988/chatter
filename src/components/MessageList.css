@@ -1,7 +1,25 @@
 .message_panel {
-  min-height: 100vh;
-  min-width: 100%;
-  /* overflow: auto; */
+  /* border: 2px solid salmon; */
+  height: 80%;
+  margin-top: 40px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #0b090c #252329;
+}
+
+/* scroll bar styling for all browsers except firefox*/
+.message_panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message_panel::-webkit-scrollbar-track {
+  background: #252329;
+}
+
+.message_panel::-webkit-scrollbar-thumb {
+  background-color: #0b090c;
+  border-radius: 20px;
+  border: 1px solid #0b090c;
 }
 
 .message_panel_header {

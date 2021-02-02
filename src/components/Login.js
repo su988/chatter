@@ -1,7 +1,8 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { signInWithGoogle } from '../services/firebase';
 import { Link, useHistory } from 'react-router-dom';
+import './Login.css';
 
 export default function Login() {
   const { login, currentUser } = useAuth();
@@ -20,7 +21,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
       history.push('/');
     } catch {
-      setError('Failed to login');
+      setError('Email and password do not match');
     }
 
     setLoading(false);
@@ -29,26 +30,34 @@ export default function Login() {
   currentUser && history.push('/');
 
   return (
-    <>
+    <div className='login'>
       <h2>Login</h2>
       {error && <div>{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input type='text' ref={emailRef} />
-        </label>
-        <label>
-          Password
-          <input type='password' ref={passwordRef} />
-        </label>
-        <input type='submit' value='Submit' />
+      <form onSubmit={handleSubmit} className='login_form'>
+        <input
+          type='text'
+          ref={emailRef}
+          className='login_email'
+          placeholder='Email'
+        />
+        <input
+          type='password'
+          ref={passwordRef}
+          className='login_password'
+          placeholder='Password'
+        />
+        <input className='login_submit' type='submit' value='Submit' />
       </form>
-      <div>
-        <button onClick={signInWithGoogle}>Google</button>
-      </div>
-      <div>
+
+      <div className='login_google_text'>Or sign in with Google</div>
+
+      <button onClick={signInWithGoogle} className='login_google_btn'>
+        Google
+      </button>
+
+      <div className='login_register'>
         Don't have an account? <Link to='/register'>Sign Up</Link>
       </div>
-    </>
+    </div>
   );
 }
