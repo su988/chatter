@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   width: 30%;
   margin: 10% auto;
-  min-height: 500px;
+  min-height: 510px;
   width: 350px;
   padding: 20px;
 }
@@ -27,6 +27,11 @@ body {
   margin-bottom: 20px;
   text-transform: uppercase;
   align-self: center;
+}
+
+.login_error {
+  color: #fd4850;
+  margin-bottom: 10px;
 }
 
 .login_form {

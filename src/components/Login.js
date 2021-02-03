@@ -21,7 +21,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
       history.push('/');
     } catch {
-      setError('Email and password do not match');
+      setError('Credentials do not match');
     }
 
     setLoading(false);
@@ -32,19 +32,19 @@ export default function Login() {
   return (
     <div className='login'>
       <h2>Login</h2>
-      {error && <div>{error}</div>}
+      {error && <div className='login_error'>{error}</div>}
       <form onSubmit={handleSubmit} className='login_form'>
         <input
           type='text'
           ref={emailRef}
           className='login_email'
-          placeholder='Email'
+          placeholder='john@mail.com'
         />
         <input
           type='password'
           ref={passwordRef}
           className='login_password'
-          placeholder='Password'
+          placeholder='password'
         />
         <input className='login_submit' type='submit' value='Submit' />
       </form>

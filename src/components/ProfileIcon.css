@@ -5,4 +5,31 @@
   min-height: 75px;
   background-color: #0b090c;
   color: #828282;
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+.profileIcon p {
+  text-transform: capitalize;
+}
+
+.profileIcon > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+.profileIcon > button {
+  background: #0b090c;
+  border: none;
+}
+
+.profileIcon > button > svg {
+  color: #fd4850;
+  font-size: 20px;
+}
+
+.profileIcon > button > svg:hover {
+  cursor: pointer;
 }

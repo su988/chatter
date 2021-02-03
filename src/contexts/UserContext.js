@@ -14,9 +14,11 @@ export function UserProvider({ children }) {
   const getCurrentUserInfo = (userId) => {
     const userRef = db.ref('Users/' + userId);
     userRef.on('value', (snapshot) => {
-      const user = snapshot.val();
-      setUsername(user['username']);
-      setPhotoUrl(user['photoUrl']);
+      if (snapshot.val()) {
+        const user = snapshot.val();
+        setUsername(user['username']);
+        setPhotoUrl(user['photoUrl']);
+      }
     });
   };
 

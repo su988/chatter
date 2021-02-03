@@ -37,7 +37,7 @@ export default function Register() {
   return (
     <div className='login'>
       <h2>signup</h2>
-      {error && <div>{error}</div>}
+      {error && <div className='login_error'>{error}</div>}
       <form onSubmit={handleSubmit} className='login_form'>
         <input
           type='text'

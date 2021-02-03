@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useRef, useEffect } from 'react';
 import { Initial } from 'react-initial';
 import Moment from 'react-moment';
 import 'moment-timezone';
-
 import './Messages.css';
 
 export default function Messages({ messages }) {
