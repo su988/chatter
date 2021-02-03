@@ -10,7 +10,6 @@ User Story
 - When I can select a channel, I am added as a member\
 - I can see member of the channel\
 - I can send a message\
-- I can see other people's messages\
-- User story(optional): I can search for a group
+- I can see other people's messages
 
 Design File - https://www.figma.com/file/0oMeogZV0wD6Ml69HDrF66/Chat-Group?node-id=0%3A1
