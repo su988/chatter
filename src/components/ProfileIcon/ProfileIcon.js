@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import { useUser } from '../contexts/UserContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { useUser } from '../../contexts/UserContext';
 import './ProfileIcon.css';
 import { Initial } from 'react-initial';
 import { RiLogoutBoxRLine } from 'react-icons/ri';

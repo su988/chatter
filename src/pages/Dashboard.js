@@ -1,6 +1,6 @@
 import React from 'react';
-import AllChannels from '../components/AllChannels';
-import Welcome from '../components/Welcome';
+import AllChannels from '../components/AllChannels/AllChannels';
+import Welcome from '../components/Welcome/Welcome';
 import './Dashboard.css';
 
 export default function Dashboard() {

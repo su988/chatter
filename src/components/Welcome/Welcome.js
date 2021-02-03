@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPanel from './MainPanel';
+import MainPanel from '../MainPanel/MainPanel';
 import './Welcome.css';
 
 export default function Welcome() {

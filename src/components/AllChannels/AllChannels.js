@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
-import Sidebar from './Sidebar';
-import SidebarHeader from './SidebarHeader';
-import NewChannelForm from './NewChannelForm';
-import Modal from './Modal';
-import ChannelList from './ChannelList';
-import ProfileIcon from './ProfileIcon';
+import Sidebar from '../Sidebar/Sidebar';
+import SidebarHeader from '../SidebarHeader/SidebarHeader';
+import NewChannelForm from '../NewChannelForm/NewChannelForm';
+import Modal from '../Modal/Modal';
+import ChannelList from '../ChannelList/ChannelList';
+import ProfileIcon from '../ProfileIcon/ProfileIcon';
 import './AllChannels.css';
 
 export default function AllChannels() {

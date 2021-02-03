@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
-import InputField from './InputField';
-import Channel from './Channel';
-import { useChannel } from '../contexts/ChannelContext';
+import InputField from '../InputField/InputField';
+import Channel from '../Channel/Channel';
+import { useChannel } from '../../contexts/ChannelContext';
 import './ChannelList.css';
 
 export default function ChannelList() {

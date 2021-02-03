@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { useChannel } from '../contexts/ChannelContext';
+import { useChannel } from '../../contexts/ChannelContext';
 import { Initial } from 'react-initial';
 import './MembersList.css';
 

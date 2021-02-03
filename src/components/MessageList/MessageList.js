@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import MainPanel from './MainPanel';
-import Messages from './Messages';
-import { useMessage } from '../contexts/MessageContext';
-import { useUser } from '../contexts/UserContext';
+import MainPanel from '../MainPanel/MainPanel';
+import Messages from '../Messages/Messages';
+import { useMessage } from '../../contexts/MessageContext';
+import { useUser } from '../../contexts/UserContext';
 import { IoMdSend } from 'react-icons/io';
 import './MessageList.css';
 

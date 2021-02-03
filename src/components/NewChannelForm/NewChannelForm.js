@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useChannel } from '../contexts/ChannelContext';
+import { useChannel } from '../../contexts/ChannelContext';
 import './NewChannelForm.css';
 
 export default function NewChannelForm({ modal }) {
