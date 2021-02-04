@@ -2,7 +2,6 @@ import React, {
   useState,
   useImperativeHandle,
   forwardRef,
-  useEffect,
   useCallback
 } from 'react';
 import { createPortal } from 'react-dom';
@@ -23,20 +22,6 @@ function Modal({ children, fade = false, defaultOpened = false }, ref) {
     }),
     [close]
   );
-
-  const handleEscape = useCallback(
-    (event) => {
-      if (event.key === 27) close();
-    },
-    [close]
-  );
-
-  useEffect(() => {
-    if (isOpen) document.addEventListener('keydown', handleEscape, false);
-    return () => {
-      document.removeEventListener('keydown', handleEscape, false);
-    };
-  }, [handleEscape, isOpen]);
 
   return createPortal(
     isOpen ? (

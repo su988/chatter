@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useChannel } from '../../contexts/ChannelContext';
 import './NewChannelForm.css';
 
@@ -6,6 +6,18 @@ export default function NewChannelForm({ modal }) {
   const { createNewChannel } = useChannel();
   const nameRef = useRef();
   const descriptionRef = useRef();
+
+  const handleEscape = (event) => {
+    if (event.key === 'Escape') modal.current.close();
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscape, false);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape, false);
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
