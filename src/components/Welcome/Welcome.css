@@ -1,8 +1,15 @@
 .welcome {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  background: #0b090c;
+  padding: 20px;
+  width: 600px;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
+  margin-top: 130px;
+  border-radius: 8px;
 }
 
 .welcome_message {
@@ -13,10 +20,11 @@
   line-height: 25px;
   letter-spacing: -0.035em;
   color: #828282;
-  margin-top: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .welcome p {
-  font-size: 24px;
+  font-size: 18px;
+  color: #828282;
+  width: 80%;
 }

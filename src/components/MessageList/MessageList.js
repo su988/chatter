@@ -8,6 +8,7 @@ import './MessageList.css';
 
 export default function MessageList({ channelId, currentUser, channelName }) {
   const textRef = useRef();
+  const messagesEndRef = useRef(null);
   const { getCurrentUserInfo, username, photoUrl } = useUser();
   const { createNewMessage, getMessagesInChannel, messages } = useMessage();
 
@@ -29,6 +30,14 @@ export default function MessageList({ channelId, currentUser, channelName }) {
     textRef.current.value = '';
   };
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   useEffect(() => {
     getCurrentUserInfo(currentUser.uid);
   }, []);
@@ -40,22 +49,24 @@ export default function MessageList({ channelId, currentUser, channelName }) {
 
   return (
     <MainPanel>
-      <div className='message_panel'>
-        <div className='message_panel_header'>{channelName}</div>
-        <Messages messages={messages} />
-        <form className='message_input' onSubmit={handleSubmit}>
-          <input
-            className='message_input_text'
-            placeholder='Enter Message here'
-            type='text'
-            ref={textRef}
-          />
+      <div className='message_panel_header'>{channelName}</div>
 
-          <button className='message_submit_btn'>
-            <IoMdSend />
-          </button>
-        </form>
+      <div className='message_panel'>
+        <Messages messages={messages} />
+        <div ref={messagesEndRef} />
       </div>
+
+      <form className='message_input' onSubmit={handleSubmit}>
+        <input
+          className='message_input_text'
+          placeholder='Enter Message here'
+          type='text'
+          ref={textRef}
+        />
+        <button className='message_submit_btn'>
+          <IoMdSend />
+        </button>
+      </form>
     </MainPanel>
   );
 }

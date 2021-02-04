@@ -1,23 +1,23 @@
-.messages {
+.message {
+  /* border: 2px solid greenyellow; */
   display: flex;
   margin-top: 30px;
-  margin-bottom: 30px;
   margin-left: 70px;
   align-items: center;
   width: 80%;
 }
 
-.messages img {
+.message img {
   margin-right: 10px;
   border-radius: 7px;
 }
 
-.messages_user_info span {
+.message_user_info span {
   display: inline-block;
   margin-right: 10px;
 }
 
-.messages_username {
+.message_username {
   text-transform: capitalize;
   font-style: normal;
   font-weight: bold;
@@ -27,7 +27,7 @@
   color: #828282;
 }
 
-.messages_user_info time {
+.message_user_info time {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -36,12 +36,14 @@
   color: #828282;
 }
 
-.messages_text {
+.message_text {
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.035em;
   color: #e0e0e0;
-  margin-bottom: -10px;
+  margin-left: 125px;
+  margin-right: 40px;
+  margin-top: -10px;
 }
