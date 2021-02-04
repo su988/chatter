@@ -40,12 +40,12 @@ export default function MessageList({ channelId, currentUser, channelName }) {
 
   useEffect(() => {
     getCurrentUserInfo(currentUser.uid);
-  }, []);
+  }, [getCurrentUserInfo, currentUser.uid]);
 
   useEffect(() => {
     //get all messages from selected channel
     getMessagesInChannel(channelId);
-  }, []);
+  }, [getMessagesInChannel, channelId]);
 
   return (
     <MainPanel>

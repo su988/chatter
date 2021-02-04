@@ -10,7 +10,6 @@ export default function Register() {
   const passwordConfirmRef = useRef();
   const { signup, currentUser } = useAuth();
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -22,14 +21,11 @@ export default function Register() {
 
     try {
       setError('');
-      setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
       history.push('/');
     } catch {
       setError('Failed to create an account');
     }
-
-    setLoading(false);
   };
 
   currentUser && history.push('/');

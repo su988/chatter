@@ -23,11 +23,11 @@ export default function SelectedChannel() {
 
   useEffect(() => {
     getChannelInfo(channelId);
-  }, []);
+  }, [getChannelInfo, channelId]);
 
   useEffect(() => {
     addUserToChannel(currentUser.uid, channelId);
-  }, []);
+  }, [addUserToChannel, currentUser.uid, channelId]);
 
   return (
     <>

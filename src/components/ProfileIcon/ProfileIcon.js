@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUser } from '../../contexts/UserContext';
 import './ProfileIcon.css';
@@ -12,7 +11,7 @@ export default function ProfileIcon() {
 
   useEffect(() => {
     getCurrentUserInfo(currentUser.uid);
-  }, []);
+  }, [getCurrentUserInfo, currentUser.uid]);
 
   return (
     <div className='profileIcon'>
@@ -24,13 +23,6 @@ export default function ProfileIcon() {
         color={'#252329'}
       />
       <p>{username}</p>
-
-      {/* <div className='profile_setting'>
-        <Link to='/user-profile'>
-          <div>Profile</div>
-        </Link>
-      </div> */}
-
       <button onClick={logout}>
         <RiLogoutBoxRLine />
       </button>

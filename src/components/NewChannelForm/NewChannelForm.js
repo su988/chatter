@@ -17,7 +17,7 @@ export default function NewChannelForm({ modal }) {
     return () => {
       document.removeEventListener('keydown', handleEscape, false);
     };
-  }, []);
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();

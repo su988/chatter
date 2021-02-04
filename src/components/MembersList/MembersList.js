@@ -8,7 +8,7 @@ export default function MembersList({ channelId }) {
 
   useEffect(() => {
     getChannelMembers(channelId);
-  }, []);
+  }, [getChannelMembers, channelId]);
 
   const renderList =
     channelMembers &&

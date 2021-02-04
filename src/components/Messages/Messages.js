@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { Initial } from 'react-initial';
 import Moment from 'react-moment';
 import 'moment-timezone';

@@ -9,7 +9,6 @@ export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -17,14 +16,11 @@ export default function Login() {
 
     try {
       setError('');
-      setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       history.push('/');
     } catch {
       setError('Credentials do not match');
     }
-
-    setLoading(false);
   };
 
   currentUser && history.push('/');
