@@ -1,4 +1,6 @@
-Real time chat app
+# Real time chat app
+
+![Real TIme Chat APp - Animated gif demo](demo/demo.gif)
 
 Front end built with React.\
 Firebase for user authentication and database.
